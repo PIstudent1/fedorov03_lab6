@@ -13,13 +13,14 @@ namespace fedorov03_lab6
         static void Main(string[] args)
         {
             Driver drive = new Driver();
-            Date date1 = new Date();
-            Date date2 = new Date();
-            drive.Input();
-            drive.Output();
-            date1.Init(12,12,2021);
-            date2.Init(12,12,1990);
-            date1.Indays(date2);
+            Date[] date = new Date[2];
+            for(int i = 0; i < 2; i++)
+            {
+                date[i] = new Date();
+                date[i].Input();
+            }
+            date[0].Indays(date[1]);
+           
         }
     }
 }

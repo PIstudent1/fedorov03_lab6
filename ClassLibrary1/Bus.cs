@@ -12,6 +12,27 @@ namespace ClassLibrary1
         private string mark;
         private Engine engine = new Engine();
 
+
+        public int Number
+        {
+            get { return number; }
+
+            set
+            {
+                if (value < 1 || value > 999)
+                    Console.WriteLine("Номер должен быть в диапазоне от 1 до 999");
+                else
+                   number = value;
+            }
+        }
+
+        public string Mark
+        {
+            get { return mark; }
+
+            set { mark = value; }
+        }
+
         public void Output()
         {
             if (number <= 0 || String.IsNullOrEmpty(mark))
@@ -33,11 +54,11 @@ namespace ClassLibrary1
         {
             if(number > 0)
             {
-                this.number = number;
+                Number = number;
             }
             if (!String.IsNullOrEmpty(mark))
             {
-                this.mark = mark;
+               Mark = mark;
             }
             this.engine = engine;
         }
@@ -56,7 +77,7 @@ namespace ClassLibrary1
                     Console.WriteLine("Ошибка ввода! Введите целое число!");
                 }
             } while (number <= 0 );
-            this.number = number;
+            Number = number;
             do
             {
                 Console.WriteLine("\nВведите марку: ");
@@ -66,7 +87,7 @@ namespace ClassLibrary1
                     Console.WriteLine("\nВы ничего не ввели! Повторите ввод! ");
                 }
             } while (String.IsNullOrEmpty(mark) || String.IsNullOrWhiteSpace(mark));
-            this.mark = mark;
+            Mark = mark;
             engine.Input();
             this.engine = engine;
         }

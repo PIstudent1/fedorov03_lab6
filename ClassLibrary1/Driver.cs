@@ -12,6 +12,10 @@ namespace ClassLibrary1
         private string lastname;
         private Date birthdate = new Date();
 
+        public string Name { get; set; }
+
+        public string Lastname { get; set; }
+
         public Driver() { 
         }
 
@@ -35,19 +39,19 @@ namespace ClassLibrary1
         {
             if (String.IsNullOrEmpty(name))
             {
-                this.name = "-";
+                Name = "-";
             }
             else
             {
-                this.name = name;
+                Name = name;
             }
             if (String.IsNullOrEmpty(lastname))
             {
-                this.lastname = "-";
+                Lastname = "-";
             }
             else
             {
-                this.lastname = lastname; 
+                Lastname = lastname; 
             }
             this.birthdate = birthdate;
         }
@@ -66,7 +70,7 @@ namespace ClassLibrary1
                     Console.WriteLine("\nВы ничего не ввели! Повторите ввод: ");
                 }
             } while (String.IsNullOrEmpty(name) || String.IsNullOrWhiteSpace(name)) ;
-            this.name = name;
+            Name = name;
             do
             {
                 Console.WriteLine("\nВведите фамилию: ");
@@ -76,7 +80,7 @@ namespace ClassLibrary1
                     Console.WriteLine("\nВы ничего не ввели! Повторите ввод! ");
                 }
             } while (String.IsNullOrEmpty(lastname) || String.IsNullOrWhiteSpace(lastname));
-            this.lastname = lastname;
+            Lastname = lastname;
             Console.WriteLine("\nВведите дату рождения: ");
             birthdate.Input();
             this.birthdate = birthdate;

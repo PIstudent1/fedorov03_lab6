@@ -14,6 +14,56 @@ namespace ClassLibrary1
         private int minutes;
         Driver driver = new Driver();
 
+
+        public int Sum
+        {
+            get { return sum; }
+
+            set
+            {
+                if (value < 0)
+                    Console.WriteLine("Сумма не может быть отрицательной");
+                else
+                    sum = value;
+            }
+        }
+
+        public string Destination
+        {
+            get { return destination; }
+
+            set
+            {
+                destination = value;
+            }
+        }
+
+        public int Hours
+        {
+            get { return hours; }
+
+            set
+            {
+                if (value < 0 || value > 24)
+                    Console.WriteLine("Часы должны быть в диапазоне от 0 до 24");
+                else
+                    hours = value;
+            }
+        }
+
+        public int Minutes
+        {
+            get { return minutes; }
+
+            set
+            {
+                if (value < 0 || value > 60)
+                    Console.WriteLine("Минуты должны быть в диапазоне от 0 до 60");
+                else
+                    minutes = value;
+            }
+        }
+
         public void Output()
         {
             if (sum <= 0 || String.IsNullOrEmpty(destination) || hours < 0 || minutes < 0)
@@ -33,19 +83,19 @@ namespace ClassLibrary1
         {
             if(sum > 0)
             {
-                this.sum = sum;
+                Sum = sum;
             }
             if(!String.IsNullOrEmpty(destination)){
-                this.destination = destination;
+                Destination = destination;
             }
             if(hours >= 0)
             {
-                this.hours = hours;
+                Hours = hours;
             }
 
             if( minutes >= 0)
             {
-                this.minutes = minutes;
+                Minutes = minutes;
             }
             this.driver = driver;
         }
@@ -63,7 +113,7 @@ namespace ClassLibrary1
                     Console.WriteLine("Ошибка ввода! Введите целое число!");
                 }
             } while (sum <= 0);
-            this.sum = sum;
+            Sum = sum;
             do
             {
                 Console.WriteLine("\nВведите имя: ");
@@ -73,7 +123,7 @@ namespace ClassLibrary1
                     Console.WriteLine("\nВы ничего не ввели! Повторите ввод: ");
                 }
             } while (String.IsNullOrEmpty(destination) || String.IsNullOrWhiteSpace(destination));
-            this.destination = destination;
+            Destination = destination;
             do
             {
                 Console.WriteLine("Введите часы:");
@@ -82,7 +132,7 @@ namespace ClassLibrary1
                     Console.WriteLine("Ошибка ввода! Введите целое число!");
                 }
             } while (hours < 0);
-            this.hours = hours;
+            Hours = hours;
             do
             {
                 Console.WriteLine("Введите минуты:");
@@ -91,7 +141,7 @@ namespace ClassLibrary1
                     Console.WriteLine("Ошибка ввода! Введите целое число!");
                 }
             } while (minutes < 0);
-            this.minutes = minutes;
+            Minutes = minutes;
             driver.Input();
             this.driver = driver;
         }
