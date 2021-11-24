@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1
 {
-    public class Date
+    public struct Date
     {
         private int day;
         private int month;
@@ -51,8 +51,7 @@ namespace ClassLibrary1
             }
         }
 
-        public Date() { 
-        }
+ 
 
         public void Output()
         {
