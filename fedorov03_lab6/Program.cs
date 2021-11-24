@@ -12,15 +12,11 @@ namespace fedorov03_lab6
     {
         static void Main(string[] args)
         {
-            Driver drive = new Driver();
-            Date[] date = new Date[2];
-            for(int i = 0; i < 2; i++)
-            {
-                date[i] = new Date();
-                date[i].Input();
-            }
-            date[0].Indays(date[1]);
-           
+            int discount = 0;
+            Ticket tick = new Ticket();
+            tick.Input();
+            tick.Sale(ref discount);
+            Console.WriteLine($"\n\nЦена с учетом скидки  процент(ов): {discount}");
         }
     }
 }
