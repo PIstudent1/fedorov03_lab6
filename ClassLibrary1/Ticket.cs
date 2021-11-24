@@ -116,7 +116,7 @@ namespace ClassLibrary1
             Sum = sum;
             do
             {
-                Console.WriteLine("\nВведите имя: ");
+                Console.WriteLine("\nВведите пунтк назначения: ");
                 destination = Console.ReadLine();
                 if (String.IsNullOrEmpty(destination) || String.IsNullOrWhiteSpace(destination))
                 {
@@ -149,16 +149,9 @@ namespace ClassLibrary1
         public void Sale( ref int discount)
         {
             int sl1 = discount;
-            do
-            {
-                Console.WriteLine("Введите процент скидки:");
-                while (!int.TryParse(Console.ReadLine(), out sl1))
-                {
-                    Console.WriteLine("Ошибка ввода! Введите целое число!");
-                }
-            } while (sl1 <= 0);
             discount = sum - (sum * sl1 / 100);
             Console.WriteLine($"\n\nЦена с учетом скидки {sl1} процент(ов): {discount}");
+            Console.ReadLine();
         }
     }
 }

@@ -12,11 +12,12 @@ namespace fedorov03_lab6
     {
         static void Main(string[] args)
         {
-            int discount = 0;
+            int discount = 20;
             Ticket tick = new Ticket();
             tick.Input();
             tick.Sale(ref discount);
             Console.WriteLine($"\n\nЦена с учетом скидки  процент(ов): {discount}");
+            Console.ReadLine();
         }
     }
 }
