@@ -19,9 +19,10 @@ namespace fedorov03_lab6
                 date[i] = new Date();
                 date[i].Input();
             }
+            ++date[0];
+            date[0].Output();
             date[0].Indays(date[1]);
             Date date1 = new Date();
-            date1.Init(11,12,1992);
             date1 = date[0] + date[1];
             date1.Output();
             Ticket tick = new Ticket();

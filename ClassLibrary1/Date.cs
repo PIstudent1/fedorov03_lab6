@@ -158,5 +158,10 @@ namespace ClassLibrary1
         {
             return new Date { Day = date.day + date1.day, Month = date.month, Year = date.year };
         }
+
+        public static Date operator++(Date date)
+        {
+            return new Date { Day = date.day + 1, Month = date.month + 1, Year = date.year + 1 };
+        }
     }
 }
