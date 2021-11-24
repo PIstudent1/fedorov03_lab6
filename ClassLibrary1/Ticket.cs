@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1
 {
-    class Ticket
+    public class Ticket
     {
         private int sum;
         private string destination;
@@ -146,20 +146,13 @@ namespace ClassLibrary1
             this.driver = driver;
         }
 
-        public void Sale()
+        public void Sale(out int discount)
         {
-            int sl1 = 0;
-            double sl2 = 0;
-            do
-            {
-                Console.WriteLine("Введите процент скидки:");
-                while (!int.TryParse(Console.ReadLine(), out sl1))
-                {
-                    Console.WriteLine("Ошибка ввода! Введите целое число!");
-                }
-            } while (sl1 <= 0);
-            sl2 = sum - (sum * sl1 / 100);
-            Console.WriteLine($"\n\nЦена с учетом скидки {sl1} процент(ов): {Math.Round(sl2,2)}");
+            discount = 30;
+            int sl1 = discount;
+            discount = sum - (sum * sl1 / 100);
+            Console.WriteLine($"\n\nЦена с учетом скидки {sl1} процент(ов): {discount}");
+            Console.ReadLine();
         }
     }
 }

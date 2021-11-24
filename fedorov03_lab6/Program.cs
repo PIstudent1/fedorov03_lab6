@@ -12,15 +12,18 @@ namespace fedorov03_lab6
     {
         static void Main(string[] args)
         {
-            Driver drive = new Driver();
-            Date[] date = new Date[2];
-            for(int i = 0; i < 2; i++)
-            {
-                date[i] = new Date();
-                date[i].Input();
-            }
-            date[0].Indays(date[1]);
-           
+            //Driver drive = new Driver();
+            //Date[] date = new Date[2];
+            //for(int i = 0; i < 2; i++)
+            //{
+            //    date[i] = new Date();
+            //    date[i].Input();
+            //}
+            //date[0].Indays(date[1]);
+            Ticket tick = new Ticket();
+            int discount;
+            tick.Input();
+            tick.Sale(out discount);
         }
     }
 }
