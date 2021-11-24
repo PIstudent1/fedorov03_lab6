@@ -116,7 +116,7 @@ namespace ClassLibrary1
             Sum = sum;
             do
             {
-                Console.WriteLine("\nВведите имя: ");
+                Console.WriteLine("\nВведите пункт назначения: ");
                 destination = Console.ReadLine();
                 if (String.IsNullOrEmpty(destination) || String.IsNullOrWhiteSpace(destination))
                 {

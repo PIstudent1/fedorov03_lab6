@@ -16,13 +16,14 @@ namespace ClassLibrary1
         public int Day
         {
             get { return day; }
-            
-            set {
+
+            set
+            {
                 if (value < 1 || value > 31)
                     Console.WriteLine("Дата должна быть в диапазоне от 1 до 31");
                 else
-                   day  = value;
-            }         
+                    day = value;
+            }
         }
 
         public int Month
@@ -44,19 +45,20 @@ namespace ClassLibrary1
 
             set
             {
-                if (value < 1 )
+                if (value < 1)
                     Console.WriteLine("Год должен быть в положительным");
                 else
                     year = value;
             }
         }
 
-        public Date() { 
+        public Date()
+        {
         }
 
         public void Output()
         {
-            if (day == 0 ||month == 0 || year == 0)
+            if (day == 0 || month == 0 || year == 0)
             {
                 Console.WriteLine("Ошибка инициализации даты! Были переданы неверные значения!");
             }
@@ -66,7 +68,7 @@ namespace ClassLibrary1
             }
             Console.ReadLine();
         }
-        
+
         public void Init(int day, int month, int year)
         {
             if (day <= 0 || day > 31)
@@ -77,12 +79,13 @@ namespace ClassLibrary1
             {
                 Day = day;
             }
-            if (month <= 0 || month > 12) {
+            if (month <= 0 || month > 12)
+            {
                 this.month = 0;
             }
             else
             {
-               Month = month;
+                Month = month;
             }
             if (year <= 0)
             {
@@ -106,17 +109,19 @@ namespace ClassLibrary1
                 }
             } while (day <= 0 || day > 31);
             Day = day;
-                do { 
-                    Console.WriteLine("Введите месяц:");
-                while (!int.TryParse(Console.ReadLine(), out month)) 
+            do
+            {
+                Console.WriteLine("Введите месяц:");
+                while (!int.TryParse(Console.ReadLine(), out month))
                 {
                     Console.WriteLine("Ошибка ввода! Введите целое число!");
                 }
             } while (month <= 0 || month > 12);
             Month = month;
 
-            do { 
-                    Console.WriteLine("Введите год:");
+            do
+            {
+                Console.WriteLine("Введите год:");
                 while (!int.TryParse(Console.ReadLine(), out year))
                 {
                     Console.WriteLine("Ошибка ввода! Введите целое число!");
@@ -129,7 +134,7 @@ namespace ClassLibrary1
             int sum, sum1;
             if (month < 3)
             {
-               year--; month += 12;
+                year--; month += 12;
             }
             sum = 365 * year + year / 4 - year / 100 + year / 400 + (153 * month - 457) / 5 + day - 306;
             if (date1.month < 3)
@@ -146,6 +151,12 @@ namespace ClassLibrary1
                 Console.WriteLine($"Количество дней между датами: {sum - sum1}");
             }
             Console.ReadLine();
+        }
+
+
+        public static Date operator+(Date date, Date date1)
+        {
+            return new Date { Day = date.day + date1.day, Month = date.month, Year = date.year };
         }
     }
 }
