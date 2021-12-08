@@ -8,6 +8,8 @@ namespace ClassLibrary1
 {
     public class Ticket
     {
+        private static int count;
+        private int id;
         private int sum;
         private string destination;
         private int hours;
@@ -64,6 +66,11 @@ namespace ClassLibrary1
             }
         }
 
+        public static void ChangeDestination (Ticket ticket, string destination)
+        {
+            ticket.destination = destination;
+        }
+
         public void Output()
         {
             if (sum <= 0 || String.IsNullOrEmpty(destination) || hours < 0 || minutes < 0)
@@ -72,6 +79,7 @@ namespace ClassLibrary1
             }
             else {
                 Console.WriteLine("\nИнформация о билете:");
+                Console.WriteLine($"\nId: {id}");
                 Console.WriteLine($"\nЦена: {sum}");
                 Console.WriteLine($"\nПункт назначения: {destination}");
                 Console.WriteLine($"\nВремя отправления: {hours}:{minutes}");
@@ -98,6 +106,8 @@ namespace ClassLibrary1
                 Minutes = minutes;
             }
             this.driver = driver;
+            count++;
+            id = count;
         }
 
         public void Input()
@@ -144,6 +154,8 @@ namespace ClassLibrary1
             Minutes = minutes;
             driver.Input();
             this.driver = driver;
+            count++;
+            id = count;
         }
 
         public void Sale(out int discount)
