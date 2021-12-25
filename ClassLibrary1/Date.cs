@@ -52,8 +52,15 @@ namespace ClassLibrary1
             }
         }
 
-        public Date()
+        public Date() //Конструктор без праметров
         {
+        }
+
+        public Date(int value) { //Конструктор с одним параметром
+            day = value;
+            month = value;
+            year = value;
+
         }
 
         public void Output()
@@ -69,7 +76,7 @@ namespace ClassLibrary1
             Console.ReadLine();
         }
 
-        public void Init(int day, int month, int year)
+       public Date(int day, int month, int year) //Конструткор с праметрами
         {
             if (day <= 0 || day > 31)
             {
@@ -100,34 +107,67 @@ namespace ClassLibrary1
         public void Input()
         {
             int day, month, year;
+            bool input;
             do
             {
-                Console.WriteLine("Введите день:");
-                while (!int.TryParse(Console.ReadLine(), out day))
+                try
                 {
-                    Console.WriteLine("Ошибка ввода! Введите целое число!");
+                    Console.WriteLine("Введите день:");
+                    day = Convert.ToInt32(Console.ReadLine());
+                    if (1 < day || day > 31)
+                    {
+                        throw new Exception();
+                    }
+                    input = false;
+                    Day = day;
                 }
-            } while (day <= 0 || day > 31);
-            Day = day;
+                catch
+                {
+                    Console.WriteLine("Ошибка ввода. Повторите ввод");
+                    input = true;
+                }
+               
+            } while (input);
             do
             {
-                Console.WriteLine("Введите месяц:");
-                while (!int.TryParse(Console.ReadLine(), out month))
+                try
                 {
-                    Console.WriteLine("Ошибка ввода! Введите целое число!");
+                    Console.WriteLine("Введите месяц:");
+                    month = Convert.ToInt32(Console.ReadLine());
+                    if (1 < month || month > 12)
+                    {
+                        throw new Exception();
+                    }
+                    input = false;
+                    Month = month;
                 }
-            } while (month <= 0 || month > 12);
-            Month = month;
+                catch
+                {
+                    Console.WriteLine("Ошибка ввода. Повторите ввод");
+                    input = true;
+                }
+
+            } while (input);
 
             do
             {
-                Console.WriteLine("Введите год:");
-                while (!int.TryParse(Console.ReadLine(), out year))
+                try
                 {
-                    Console.WriteLine("Ошибка ввода! Введите целое число!");
+                    Console.WriteLine("Введите год:");
+                    year = Convert.ToInt32(Console.ReadLine());
+                    if (1 < year || year > 2021)
+                    {
+                        throw new Exception();
+                    }
+                    input = false;
+                    Year = year;
                 }
-            } while (year <= 0);
-            Year = year;
+                catch
+                {
+                    Console.WriteLine("Ошибка ввода. Повторите ввод");
+                    input = true;
+                }
+            } while (input);
         }
         public void Indays(Date date1)
         {

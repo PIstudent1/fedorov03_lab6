@@ -53,8 +53,13 @@ namespace ClassLibrary1
                 createdate.Output();
             }
         }
-        public Engine() { }
-        public void Init(int number, int power, Date createdate)
+        public Engine() {} //Конструктор без параметров
+
+        public Engine(int value) //Конструктор с одним параметром 
+        {
+            number = value;
+        }
+        public Engine(int number, int power, Date createdate) //Конструктор с параметрами
         {
             if (number > 0)
             {

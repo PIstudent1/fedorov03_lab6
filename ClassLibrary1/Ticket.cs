@@ -8,13 +8,13 @@ namespace ClassLibrary1
 {
     public class Ticket
     {
-        private static int count;
+        private static int count; //Статическое поле
         private int id;
         private int sum;
         private string destination;
         private int hours;
         private int minutes;
-        Driver driver = new Driver();
+        Passenger passenger = new Passenger();
 
 
         public int Sum
@@ -66,7 +66,7 @@ namespace ClassLibrary1
             }
         }
 
-        public static void ChangeDestination (Ticket ticket, string destination)
+        public static void ChangeDestination (Ticket ticket, string destination) //Статический метод
         {
             ticket.destination = destination;
         }
@@ -83,11 +83,19 @@ namespace ClassLibrary1
                 Console.WriteLine($"\nЦена: {sum}");
                 Console.WriteLine($"\nПункт назначения: {destination}");
                 Console.WriteLine($"\nВремя отправления: {hours}:{minutes}");
-                driver.Output();
+                Console.WriteLine("\nИнформация о пассажире:");
+                passenger.Output();
             }
         }
 
-        public void Init(int sum, string destination, int hours, int minutes, Driver driver)
+        public Ticket() {} //Конструктор без параметров
+
+        public Ticket(int value) //Конструктор с одним параметром
+        {
+            sum = value;
+        }
+
+        public Ticket(int sum, string destination, int hours, int minutes, Passenger passenger) //Конструктор с параметрами
         {
             if(sum > 0)
             {
@@ -105,7 +113,7 @@ namespace ClassLibrary1
             {
                 Minutes = minutes;
             }
-            this.driver = driver;
+            this.passenger = passenger;
             count++;
             id = count;
         }
@@ -114,7 +122,7 @@ namespace ClassLibrary1
         {
             int sum, hours, minutes;
             string destination;
-            Driver driver = new Driver();
+            Passenger passenger = new Passenger();
             do
             {
                 Console.WriteLine("Введите цену билета:");
@@ -152,8 +160,9 @@ namespace ClassLibrary1
                 }
             } while (minutes < 0);
             Minutes = minutes;
-            driver.Input();
-            this.driver = driver;
+            Console.WriteLine("\nВведите информацию о пассажире:");
+            passenger.Input();
+            this.passenger = passenger;
             count++;
             id = count;
         }

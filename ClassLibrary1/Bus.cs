@@ -48,9 +48,14 @@ namespace ClassLibrary1
             }
         }
 
-        public Bus() { }
+        public Bus() {} //Конструктор без параметров
 
-        public void Init(int number, string mark, Engine engine)
+        public Bus(int value) //Конструктор с одним параметром
+        {
+            number = value;
+        }
+
+        public Bus(int number, string mark, Engine engine) //Конструктор с параметрами
         {
             if(number > 0)
             {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1
 {
-    public class Driver
+    public class Human
     {
         private string name;
         private string lastname;
@@ -16,7 +16,7 @@ namespace ClassLibrary1
 
         public string Lastname { get; set; }
 
-        public Driver() { 
+        public Human() {  //Конструктор без параметров
         }
 
         public void Output()
@@ -27,15 +27,20 @@ namespace ClassLibrary1
             }
             else
             {
-                Console.WriteLine("\nИнформация о водителе:");
+              
                 Console.WriteLine($"\nИмя: {name}");
                 Console.WriteLine($"\nФамилия: {lastname}");
                 Console.WriteLine("\nДата рождения:");
                 birthdate.Output();
             }
         }
+        
+        public Human(string value) //Конструктор с одним параметром
+        {
+            name = value;
+        }
 
-        public void Init(string name, string lastname, Date birthdate)
+        public Human(string name, string lastname, Date birthdate) //Конструктор с параметрами
         {
             if (String.IsNullOrEmpty(name))
             {
@@ -61,7 +66,7 @@ namespace ClassLibrary1
             string name;
             string lastname;
             Date birthdate = new Date();
-            Console.WriteLine("\nВведите информацию о водителе:");
+        
             do {
                 Console.WriteLine("\nВведите имя: ");
                 name = Console.ReadLine();
@@ -86,4 +91,32 @@ namespace ClassLibrary1
             this.birthdate = birthdate;
         }
     }
+
+    class Driver : Human
+    {
+        private Bus driversbus;
+
+        public void Inputdriver()
+        {
+            Console.WriteLine("\nВведите информацию о водителе:");
+            Input();
+            Console.WriteLine("\nВведите информацию об автобусе: ");
+            driversbus.Input();
+        }
+
+        public void Outputdriver()
+        {
+            Console.WriteLine("\nИнформация о водителе:");
+            Output();
+            Console.WriteLine("\nИнформация об автобусе: ");
+            driversbus.Output();
+        }
+    }
+
+    public class Passenger : Human
+    {
+
+    }
 }
+
+
