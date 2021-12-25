@@ -111,6 +111,12 @@ namespace ClassLibrary1
             Console.WriteLine("\nИнформация об автобусе: ");
             driversbus.Output();
         }
+
+        public Driver(string name, string lastname, Date birthdate, Bus driversbus) : base(name, lastname, birthdate)
+        {
+            this.driversbus = driversbus;
+        }
+
     }
 
     public class Passenger : Human
