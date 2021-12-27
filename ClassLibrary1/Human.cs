@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1
 {
-    public class Human
+    abstract class Human
     {
         private string name;
         private string lastname;
@@ -110,7 +110,7 @@ namespace ClassLibrary1
 
     }
 
-    public class Passenger : Human
+     class Passenger :  Human
     {
 
     }

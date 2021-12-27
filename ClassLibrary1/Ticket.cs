@@ -14,7 +14,7 @@ namespace ClassLibrary1
         private string destination;
         private int hours;
         private int minutes;
-        Passenger passenger = new Passenger();
+        private Passenger passenger = new Passenger();
 
 
         public int Sum
@@ -95,7 +95,7 @@ namespace ClassLibrary1
             sum = value;
         }
 
-        public Ticket(int sum, string destination, int hours, int minutes, Passenger passenger) //Конструктор с параметрами
+        Ticket(int sum, string destination, int hours, int minutes, Passenger passenger) //Конструктор с параметрами
         {
             if(sum > 0)
             {

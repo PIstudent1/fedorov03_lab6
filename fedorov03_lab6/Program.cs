@@ -32,9 +32,7 @@ namespace fedorov03_lab6
 
             //}
 
-            Human human = new Human();
-            human.Input();
-            human.ToString();
+            
         }
     }
 }
