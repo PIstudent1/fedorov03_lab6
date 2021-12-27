@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1
 {
-    public class Ticket
+    interface Sale
+    {
+        void Sale(out int discount);
+    }
+    public class Ticket : Sale
     {
         private static int count; //Статическое поле
         private int id;
@@ -167,7 +171,7 @@ namespace ClassLibrary1
             id = count;
         }
 
-        public void Sale(out int discount)
+        void Sale.Sale(out int discount)
         {
             discount = 30;
             int sl1 = discount;
