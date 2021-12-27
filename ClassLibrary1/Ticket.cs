@@ -84,7 +84,7 @@ namespace ClassLibrary1
                 Console.WriteLine($"\nПункт назначения: {destination}");
                 Console.WriteLine($"\nВремя отправления: {hours}:{minutes}");
                 Console.WriteLine("\nИнформация о пассажире:");
-                passenger.Output();
+                passenger.ToString();
             }
         }
 

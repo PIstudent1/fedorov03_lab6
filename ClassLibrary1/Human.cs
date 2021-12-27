@@ -19,22 +19,11 @@ namespace ClassLibrary1
         public Human() {  //Конструктор без параметров
         }
 
-        public void Output()
+        public override string ToString()
         {
-            if (String.IsNullOrEmpty(name) || String.IsNullOrEmpty(lastname))
-            {
-                Console.WriteLine("Ошибка инициализации данных о водителе! Были переданы неверные значения!");
-            }
-            else
-            {
-              
-                Console.WriteLine($"\nИмя: {name}");
-                Console.WriteLine($"\nФамилия: {lastname}");
-                Console.WriteLine("\nДата рождения:");
-                birthdate.Output();
-            }
+            return Name + " " + Lastname + " " + birthdate;
         }
-        
+
         public Human(string value) //Конструктор с одним параметром
         {
             name = value;
@@ -60,6 +49,8 @@ namespace ClassLibrary1
             }
             this.birthdate = birthdate;
         }
+
+       
 
         public void Input()
         {
@@ -107,7 +98,7 @@ namespace ClassLibrary1
         public void Outputdriver()
         {
             Console.WriteLine("\nИнформация о водителе:");
-            Output();
+            ToString();
             Console.WriteLine("\nИнформация об автобусе: ");
             driversbus.Output();
         }

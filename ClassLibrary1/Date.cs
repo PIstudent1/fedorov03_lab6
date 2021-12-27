@@ -168,6 +168,7 @@ namespace ClassLibrary1
                     input = true;
                 }
             } while (input);
+            Console.ReadLine();
         }
         public void Indays(Date date1)
         {
