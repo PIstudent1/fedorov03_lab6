@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1
 {
-    public class Engine
+    public class Engine : System.ICloneable
     {
         private int number;
         private int power;
-        private Date createdate;
+        private Date createdate { get; set; }
 
 
         public int Number
@@ -72,6 +72,18 @@ namespace ClassLibrary1
             this.createdate = createdate;
         }
 
+        public object Clone()  //Глубокое копирование
+        {
+            Date date = new Date { Day = createdate.Day, Month = createdate.Month, Year = createdate.Year };
+            return new Engine
+            {
+                Number = Number,
+                Power = Power,
+                createdate = date
+            };
+        
+        }
+ 
         public void Input()
         {
             int number, power;

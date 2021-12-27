@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1
 {
-    public class Bus
+    
+    public class Bus 
     {
         private int number;
         private string mark;
-        private Engine engine = new Engine();
+        private Engine engine { get; set; }
 
 
         public int Number
@@ -47,6 +48,8 @@ namespace ClassLibrary1
                 engine.Output();
             }
         }
+
+       
 
         public Bus() {} //Конструктор без параметров
 

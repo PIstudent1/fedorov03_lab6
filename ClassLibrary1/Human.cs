@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1
 {
+
+   
     abstract class Human
     {
         private string name;
         private string lastname;
-        private Date birthdate = new Date();
+        private Date birthdate { get; set; }
 
         public string Name { get; set; }
 
@@ -50,8 +52,7 @@ namespace ClassLibrary1
             this.birthdate = birthdate;
         }
 
-       
-
+    
         public void Input()
         {
             string name;

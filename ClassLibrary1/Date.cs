@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace ClassLibrary1
 {
-    
-    public class Date
+
+    public class Date : System.ICloneable
     {
         private int day;
         private int month;
@@ -62,6 +62,11 @@ namespace ClassLibrary1
             month = value;
             year = value;
 
+        }
+
+        public object Clone() //Мелкое клонирование 
+        {
+            return new Date { Day = day, Month = month, Year = year };
         }
 
         public void Output()
